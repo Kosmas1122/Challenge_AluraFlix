@@ -114,14 +114,6 @@ const GlobalStyles = createGlobalStyle`
     }
 
 
-    button,
-    [type="button"],
-    [type="reset"],
-    [type="submit"] {
-        -webkit-appearance: button;
-    }
-
-
     button::-moz-focus-inner,
     [type="button"]::-moz-focus-inner,
     [type="reset"]::-moz-focus-inner,
@@ -174,12 +166,6 @@ const GlobalStyles = createGlobalStyle`
     [type="number"]::-webkit-inner-spin-button,
     [type="number"]::-webkit-outer-spin-button {
         height: auto;
-    }
-
-
-    [type="search"] {
-        -webkit-appearance: textfield; /* 1 */
-        outline-offset: -2px; /* 2 */
     }
 
 
