@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import CardVideo from "../CardVideo";
 
 const CategoriaStyled = styled.div`
-  height: 430px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* height: 430px; */
   margin: 90px 45px;
-  border: 1px solid red;
+  border: 1px solid red; // Provisional.
   background: #262626;
   background-blend-mode: normal;
   /* color: #d1ea91; */ // Provisional.
@@ -26,11 +30,24 @@ const CategoriaStyled = styled.div`
     text-transform: uppercase;
     text-align: center;
   }
+
+  div.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
 `;
 
 function Categoria(props) {
     return <CategoriaStyled fondo={props.fondo}>
-        <h1> {props.nombre} </h1>
+      <h1> {props.nombre} </h1>
+      <div className="cards">
+        <CardVideo />
+        <CardVideo />
+        <CardVideo />
+      </div>
     </CategoriaStyled>;
 }
 
