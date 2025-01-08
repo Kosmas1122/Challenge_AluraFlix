@@ -5,12 +5,13 @@ const CategoriaStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  /* height: 430px; */
   margin: 90px 45px;
-  border: 1px solid red; // Provisional.
+  padding-bottom: 25px;
+  border-bottom: 7px solid ${(props) => props.fondo};
+  border-radius: 15px;
+  box-shadow: 0px 5px 29px ${(props) => props.fondo};
   background: #262626;
   background-blend-mode: normal;
-  /* color: #d1ea91; */ // Provisional.
 
   h1 {
     box-sizing: border-box;
@@ -35,20 +36,22 @@ const CategoriaStyled = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 30px;
   }
 `;
 
 function Categoria(props) {
-    return <CategoriaStyled fondo={props.fondo}>
-      <h1> {props.nombre} </h1>
-      <div className="cards">
-        <CardVideo />
-        <CardVideo />
-        <CardVideo />
-      </div>
-    </CategoriaStyled>;
+    return (
+      <CategoriaStyled fondo={props.fondo}>
+        <h1> {props.nombre} </h1>
+        <div className="cards">
+          <CardVideo fuente="https://www.youtube.com/embed/ov7vA5HFe6w" />
+          <CardVideo fuente="https://www.youtube.com/embed/RLZ7-ZfkwOE" />
+          <CardVideo fuente="https://www.youtube.com/embed/TNJbxPaB6cA" />
+        </div>
+      </CategoriaStyled>
+    );
 }
 
 export default Categoria;
