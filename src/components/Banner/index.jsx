@@ -21,7 +21,7 @@ const BannerStyled = styled.section`
     height: 333px;
     width: 100%;
     margin: 190px 40px 0px 40px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
   }
 
   div.contenido {
