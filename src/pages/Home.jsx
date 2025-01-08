@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <Categorias />
+      <Categorias>
+        
+      </Categorias>
     </>
   );
 }
