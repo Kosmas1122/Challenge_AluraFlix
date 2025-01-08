@@ -6,8 +6,8 @@ const FooterStyled = styled.footer`
   align-items: center;
   justify-content: center;
   align-self: flex-end;
-  position: absolute;
-  bottom: 0px;
+  /* position: absolute;
+  bottom: 0px; */
   width: 100%;
   height: 125px;
   border: 1px solid #2271d1;

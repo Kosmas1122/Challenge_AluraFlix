@@ -6,7 +6,7 @@ const HeaderStyled = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100vmax;
+  width: 100%;
   height: 125px;
   border: 1px solid #2271d1;
   background: #262626;
