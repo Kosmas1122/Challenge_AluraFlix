@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import BannerVideo from "./BannerVideo";
 
 const BannerStyled = styled.section`
