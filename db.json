@@ -1,23 +1,28 @@
-[
-	{
-		"id": "1",
-		"categoria": "Frontend",
-		"imgURL": "urlImagen",
-		"videoURL": "urlVideo",
-		"descripcion": "descripcion aqui..."
-	},
-	{
-		"id": "2",
-		"categoria": "Frontend",
-		"imgURL": "urlImagen",
-		"videoURL": "urlVideo",
-		"descripcion": "descripcion aqui..."
-	},
-	{
-		"id": "3",
-		"categoria": "Frontend",
-		"imgURL": "urlImagen",
-		"videoURL": "urlVideo",
-		"descripcion": "descripcion aqui..."
-	}
-]
+{
+	"videos": [
+		{
+			"id": "1",
+			"titulo": "titulo1",
+			"categoria": "Frontend",
+			"imgURL": "urlImagen",
+			"videoURL": "urlVideo",
+			"descripcion": "descripcion aqui..."
+		},
+		{
+			"id": "2",
+			"titulo": "titulo2",
+			"categoria": "Frontend",
+			"imgURL": "urlImagen",
+			"videoURL": "urlVideo",
+			"descripcion": "descripcion aqui..."
+		},
+		{
+			"id": "3",
+			"titulo": "titulo3",
+			"categoria": "Frontend",
+			"imgURL": "urlImagen",
+			"videoURL": "urlVideo",
+			"descripcion": "descripcion aqui..."
+		}
+	]
+}
