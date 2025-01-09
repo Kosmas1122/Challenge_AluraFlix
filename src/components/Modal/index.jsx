@@ -1,15 +1,21 @@
-import styled from "styled-components";
+// Estados y Contexto:
 import { useHomeContext } from "../../context/HomeContext";
 import { useState } from "react";
 
+// styled-component y Material UI:
+import styled from "styled-components";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { Select, MenuItem, InputLabel, FormControl, Button } from "@mui/material";
 
+// Fuentes:
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+
+// Componentes:
+import Formulario from "../Formulario";
 
 
 const Overlay = styled.div`
@@ -70,6 +76,7 @@ export default function Modal() {
   };
 
 
+  
   /* Sube la ventana al inicio: */
   {window.scrollTo({ top: 0, behavior: "smooth" });}
 
@@ -157,7 +164,8 @@ export default function Modal() {
           </Button>
         </div> */}
 
-          <Button className="BtnCerrar" variant="contained" size="large" onClick={closeModal}>Cerrar</Button>
+        <Formulario />
+        <Button className="BtnCerrar" variant="contained" size="large" onClick={closeModal}>Cerrar</Button>
       </ModalStyled>
       ;
     </>
