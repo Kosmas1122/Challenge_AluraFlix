@@ -37,9 +37,7 @@ const ModalStyled = styled.div`
   border-radius: 10px;
   background: #dcf3ff;
   background-blend-mode: normal;
-  /* background: #03122f; */
-  /* background: #c6e3f5da; */
-
+  
   h1 {
     margin: 40px 0px 20px 0px;
     color: #2271d1;
@@ -57,6 +55,12 @@ const ModalStyled = styled.div`
     flex-direction: row;
     justify-content: space-between;
   }
+
+  .BtnCerrar {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
 `;
 
 export default function Modal() {
@@ -70,9 +74,7 @@ export default function Modal() {
 
 
   /* Sube la ventana al inicio: */
-  {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  {window.scrollTo({ top: 0, behavior: "smooth" });}
 
   if (!isModalOpen) return null;
 
@@ -155,11 +157,9 @@ export default function Modal() {
             {" "}
             Limpiar{" "}
           </Button>
-          <Button variant="contained" size="large" onClick={closeModal}>
-            {" "}
-            Cerrar{" "}
-          </Button>
         </div>
+
+          <Button className="BtnCerrar" variant="contained" size="large" onClick={closeModal}>Cerrar</Button>
       </ModalStyled>
       ;
     </>
