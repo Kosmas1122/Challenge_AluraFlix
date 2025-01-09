@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useHomeContext } from "../../context/HomeContext";
+import { HomeContext } from "../../context/HomeContext";
+import { useContext } from "react";
 
 const CardStyled = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ const BotonesCardStyled = styled.div`
 
 export default function CardVideo(props) {
 
-  const { openModal } = useHomeContext();
+  const { openModal } = useContext(HomeContext);  
 
   return (
     <CardStyled>

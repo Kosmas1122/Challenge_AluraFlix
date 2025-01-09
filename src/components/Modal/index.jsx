@@ -1,6 +1,6 @@
 // Estados y Contexto:
-import { useHomeContext } from "../../context/HomeContext";
-import { useState } from "react";
+import { useContext } from "react";
+import { HomeContext } from "../../context/HomeContext";
 
 // styled-component y Material UI:
 import styled from "styled-components";
@@ -53,7 +53,7 @@ const ModalStyled = styled.form`
 `;
 
 export default function Modal() {
-  const { isModalOpen, closeModal } = useHomeContext();
+  const { isModalOpen, closeModal } = useContext(HomeContext);
   
   /* Sube la ventana al inicio: */
   {window.scrollTo({ top: 0, behavior: "smooth" });}

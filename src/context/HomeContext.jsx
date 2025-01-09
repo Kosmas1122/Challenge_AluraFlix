@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
 
-const HomeContext = createContext();
+// Crea el contexto:
+export const HomeContext = createContext();
 
+// Crea el proveedor:
 export const HomeProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -14,5 +15,3 @@ export const HomeProvider = ({ children }) => {
     </HomeContext.Provider>
   );
 };
-
-export const useHomeContext = () => useContext(HomeContext);
