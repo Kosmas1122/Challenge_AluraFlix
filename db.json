@@ -19,9 +19,17 @@
 		{
 			"id": "3",
 			"titulo": "Motivación y Buenos Hábitos: Claves para Estudiar con Éxito",
-			"categoria": "Frontend",
+			"categoria": "innovación y gestión",
 			"imgURL": "https://img.youtube.com/vi/TNJbxPaB6cA/hqdefault.jpg",
 			"videoURL": "https://www.youtube.com/embed/TNJbxPaB6cA",
+			"descripcion": "¿Te falta motivación para estudiar? En este video, te compartimos consejos prácticos para mantenerte motivado y cómo los buenos hábitos pueden transformar tu forma de aprender. Descubre estrategias para mantener el enfoque, mejorar tu productividad y construir una rutina que potencie tu rendimiento académico. ¡Empieza a estudiar con más energía y logra tus metas!"
+		},
+		{
+			"id": "4",
+			"titulo": "Front-end vs. Back-end: ¡Descubre el lado perfecto para ti!",
+			"categoria": "Backend",
+			"imgURL": "https://img.youtube.com/vi/QjOWz9avkg8&list=PLNKOkLkhi1KcSUO-HCNQu0gSbE_eaUUsl/hqdefault.jpg",
+			"videoURL": "https://www.youtube.com/embed/QjOWz9avkg8&list=PLNKOkLkhi1KcSUO-HCNQu0gSbE_eaUUsl",
 			"descripcion": "¿Te falta motivación para estudiar? En este video, te compartimos consejos prácticos para mantenerte motivado y cómo los buenos hábitos pueden transformar tu forma de aprender. Descubre estrategias para mantener el enfoque, mejorar tu productividad y construir una rutina que potencie tu rendimiento académico. ¡Empieza a estudiar con más energía y logra tus metas!"
 		}
 	]
