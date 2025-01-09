@@ -4,12 +4,17 @@ import './App.css';
 // Enrutamiento:
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-// Componentes:
+// Contextos:
+import { HomeProvider } from './context/HomeContext';
+
+// Páginas:
 import Home from './pages/Home';
+import NuevoVideo from './pages/NuevoVideo';
+
+// Componentes:
 import Header from './components/Header';
 import GlobalStyles from './components/GlobalStyles';
 import Footer from './components/Footer';
-import { HomeProvider } from './context/HomeContext';
 
 
 function App() {
@@ -18,11 +23,8 @@ function App() {
       <GlobalStyles />
       <Header />
       <Routes>
-        <Route path="/" element={
-          <HomeProvider>
-            <Home />
-          </HomeProvider>
-        } />
+        <Route path="/" element={<HomeProvider> <Home /> </HomeProvider>} />
+        <Route path="/NuevoVideo" element={<NuevoVideo />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Boton from "../Boton";
 
 const HeaderStyled = styled.header`
@@ -24,17 +25,21 @@ const BotonesStyled = styled.div`
   display: flex;
   flex-direction: row;
   gap: 25px;
-	margin-right: 51px;
+  margin-right: 51px;
 `;
 
 export default function Header() {
   return (
     <HeaderStyled>
-    	<LogoStyled src="images/Logo_AluraFlix.png" alt="Logo Alura" />
-			<BotonesStyled>
-				<Boton texto="home" estado="selected" />
-				<Boton texto="nuevo video" estado="unSelected" />
-			</BotonesStyled>
+      <LogoStyled src="images/Logo_AluraFlix.png" alt="Logo Alura" />
+      <BotonesStyled>
+        <Link to="/">
+          <Boton texto="home" estado="selected" />
+        </Link>
+        <Link to="/NuevoVideo">
+          <Boton texto="nuevo video" estado="unSelected" />
+        </Link>
+      </BotonesStyled>
     </HeaderStyled>
   );
 }
