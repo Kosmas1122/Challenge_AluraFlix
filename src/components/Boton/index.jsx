@@ -14,7 +14,7 @@ function Boton(props) {
   }
 
   return (
-    <Button variant={variante} size="large"> {props.texto} </Button>
+    <Button variant={variante} size="large" onClick={props.onClick}>{props.texto}</Button>
   )
 
 }

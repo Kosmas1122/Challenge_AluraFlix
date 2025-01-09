@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Boton from "../Boton";
+import { useState } from "react";
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -29,15 +30,31 @@ const BotonesStyled = styled.div`
 `;
 
 export default function Header() {
+
+  const [botonSeleccionado, setBotonSeleccionado] = useState("home");
+
+  function alternarSeleccion(boton) {
+    setBotonSeleccionado(boton);
+  }
+
   return (
     <HeaderStyled>
       <LogoStyled src="images/Logo_AluraFlix.png" alt="Logo Alura" />
       <BotonesStyled>
         <Link to="/">
-          <Boton texto="home" estado="selected" />
+          <Boton
+            texto="home"
+            estado={botonSeleccionado === "home" ? "selected" : "unSelected"}
+            onClick={() => alternarSeleccion("home")}
+          />
         </Link>
+
         <Link to="/NuevoVideo">
-          <Boton texto="nuevo video" estado="unSelected" />
+          <Boton
+            texto="nuevo video"
+            estado={botonSeleccionado === "nuevo video" ? "selected" : "unSelected"}
+            onClick={() => alternarSeleccion("nuevo video")}
+          />
         </Link>
       </BotonesStyled>
     </HeaderStyled>
