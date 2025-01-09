@@ -12,7 +12,24 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
+import styled from "styled-components";
+import { useState } from "react";
+
+const Div = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+`
+
 function Formulario() {
+
+	const [selectedValue, setSelectedValue] = useState("");
+
+  /* Maneja el valor del campo Select: */
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value); // Actualiza el estado con el valor seleccionado
+  };
+
   return (
     <>
       <form>
@@ -76,7 +93,7 @@ function Formulario() {
           maxRows={3}
         />
 
-        <div className="botones">
+        <Div>
           <Button variant="contained" size="large">
             {" "}
             Guardar{" "}
@@ -85,7 +102,7 @@ function Formulario() {
             {" "}
             Limpiar{" "}
           </Button>
-        </div>
+        </Div>
       </form>
     </>
   );
