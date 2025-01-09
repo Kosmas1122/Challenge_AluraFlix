@@ -1,0 +1,23 @@
+[
+	{
+		"id": "1",
+		"categoria": "Frontend",
+		"imgURL": "urlImagen",
+		"videoURL": "urlVideo",
+		"descripcion": "descripcion aqui..."
+	},
+	{
+		"id": "2",
+		"categoria": "Frontend",
+		"imgURL": "urlImagen",
+		"videoURL": "urlVideo",
+		"descripcion": "descripcion aqui..."
+	},
+	{
+		"id": "3",
+		"categoria": "Frontend",
+		"imgURL": "urlImagen",
+		"videoURL": "urlVideo",
+		"descripcion": "descripcion aqui..."
+	}
+]
