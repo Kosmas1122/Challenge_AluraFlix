@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Categoria from "../Categoria";
-import { useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { HomeContext } from "../../context/HomeContext";
+
 
 const CategoriasStyled = styled.div`
   background: #262626;
@@ -23,7 +25,7 @@ async function listarVideos() {
 
 function Categorias() {
 
-  const [videos, setVideos] = useState([]);
+  const { videos, setVideos } = useContext(HomeContext);
 
   // Lee la lista de videos desde json-server:
   useEffect(() => {
