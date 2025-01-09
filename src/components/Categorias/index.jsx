@@ -4,8 +4,6 @@ import Categoria from "../Categoria";
 const CategoriasStyled = styled.div`
   background: #262626;
   background-blend-mode: normal;
-  /* height: 200px; */ // Provisional.
-  /* color: white; */ // Provisional.
 `;
 
 function Categorias() {
