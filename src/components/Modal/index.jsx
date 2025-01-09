@@ -29,9 +29,6 @@ const ModalStyled = styled.div`
   transform: translateX(-50%);
   height: 720px;
   width: 774px;
-  /* height: 1140px; */
-  /* width: 974px; */
-
   padding: 0px 100px;
   border: 5px solid #6bd1ff;
   border-radius: 10px;
@@ -43,18 +40,18 @@ const ModalStyled = styled.div`
     color: #2271d1;
   }
 
-  form {
+  /* form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
+  } */
 
-  div.botones {
+  /* div.botones {
     padding-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
+  } */
 
   .BtnCerrar {
     position: absolute;
@@ -86,7 +83,7 @@ export default function Modal() {
           Editar Card:
         </Typography>
 
-        <form>
+        {/* <form>
           <TextField
             id="titulo"
             label="Título"
@@ -146,8 +143,9 @@ export default function Modal() {
             minRows={3}
             maxRows={3}
           />
-        </form>
+        </form> */}
 
+        {/* 
         <div className="botones">
           <Button variant="contained" size="large">
             {" "}
@@ -157,7 +155,7 @@ export default function Modal() {
             {" "}
             Limpiar{" "}
           </Button>
-        </div>
+        </div> */}
 
           <Button className="BtnCerrar" variant="contained" size="large" onClick={closeModal}>Cerrar</Button>
       </ModalStyled>
