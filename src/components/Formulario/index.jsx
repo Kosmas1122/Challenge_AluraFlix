@@ -32,78 +32,70 @@ function Formulario() {
 
   return (
     <>
-      <form>
-        <TextField
-          id="titulo"
-          label="Título"
-          variant="outlined"
-          margin="normal"
-          size="medium"
-          placeholder="Ingrese un título para el video ..."
+      <TextField
+        id="titulo"
+        label="Título"
+        variant="outlined"
+        margin="normal"
+        size="medium"
+        placeholder="Ingrese un título para el video ..."
+        fullWidth
+      />
+
+      <FormControl fullWidth>
+        <InputLabel id="cat">Categoria</InputLabel>
+        <Select
+          labelId="cat"
+          label="Categoria"
+          value={selectedValue}
+          onChange={handleChange}
           fullWidth
-        />
+        >
+          <MenuItem value="Frontend">Frontend</MenuItem>
+          <MenuItem value="Backend">Backend</MenuItem>
+          <MenuItem value="Innovación y Gestión">
+            Innovación y Gestión
+          </MenuItem>
+        </Select>
+      </FormControl>
 
-        <FormControl fullWidth>
-          <InputLabel id="cat">Categoria</InputLabel>
-          <Select
-            labelId="cat"
-            label="Categoria"
-            value={selectedValue}
-            onChange={handleChange}
-            fullWidth
-          >
-            <MenuItem value="Frontend">Frontend</MenuItem>
-            <MenuItem value="Backend">Backend</MenuItem>
-            <MenuItem value="Innovación y Gestión">
-              Innovación y Gestión
-            </MenuItem>
-          </Select>
-        </FormControl>
+      <TextField
+        id="imagen"
+        label="Imagen"
+        variant="outlined"
+        margin="normal"
+        size="medium"
+        placeholder="Ingrese la URL de la imagen ..."
+        fullWidth
+      />
 
-        <TextField
-          id="imagen"
-          label="Imagen"
-          variant="outlined"
-          margin="normal"
-          size="medium"
-          placeholder="Ingrese la URL de la imagen ..."
-          fullWidth
-        />
+      <TextField
+        id="video"
+        label="Vídeo"
+        variant="outlined"
+        margin="normal"
+        size="medium"
+        placeholder="Ingrese la URL del video ..."
+        fullWidth
+      />
 
-        <TextField
-          id="video"
-          label="Vídeo"
-          variant="outlined"
-          margin="normal"
-          size="medium"
-          placeholder="Ingrese la URL del video ..."
-          fullWidth
-        />
+      <TextField
+        id="descripcion"
+        label="Descripcion"
+        variant="outlined"
+        margin="normal"
+        size="medium"
+        placeholder="Ingrese una descripción para el video ..."
+        fullWidth
+        multiline
+        minRows={3}
+        maxRows={3}
+      />
 
-        <TextField
-          id="descripcion"
-          label="Descripcion"
-          variant="outlined"
-          margin="normal"
-          size="medium"
-          placeholder="Ingrese una descripción para el video ..."
-          fullWidth
-          multiline
-          minRows={3}
-          maxRows={3}
-        />
-
-        <Div>
-          <Button variant="contained" size="large">
-            {" "}
-            Guardar{" "}
-          </Button>
-          <Button variant="contained" size="large">
-            {" "}
-            Limpiar{" "}
-          </Button>
-        </Div>
-      </form>
+      <Div>
+        <Button variant="contained" size="large">Guardar</Button>
+        <Button variant="contained" size="large">Limpiar</Button>
+      </Div>
     </>
   );
 }
