@@ -5,7 +5,7 @@
 			"titulo": "¿Qué significa pensar como programador?",
 			"categoria": "Frontend",
 			"imgURL": "https://img.youtube.com/vi/ov7vA5HFe6w&t=2s/hqdefault.jpg",
-			"videoURL": "https://www.youtube.com/embed/ov7vA5HFe6w&t=2s",
+			"videoURL": "https://www.youtube.com/embed/ov7vA5HFe6w",
 			"descripcion": "¿Cuáles son las principales características de un programador? ¿Qué habilidades y competencias debe tener alguien que quiere seguir esa carrera? En este video Christian Velasco nos habla de las principales características de un Programador."
 		},
 		{
@@ -29,7 +29,7 @@
 			"titulo": "Front-end vs. Back-end: ¡Descubre el lado perfecto para ti!",
 			"categoria": "Backend",
 			"imgURL": "https://img.youtube.com/vi/QjOWz9avkg8&list=PLNKOkLkhi1KcSUO-HCNQu0gSbE_eaUUsl/hqdefault.jpg",
-			"videoURL": "https://www.youtube.com/embed/QjOWz9avkg8&list=PLNKOkLkhi1KcSUO-HCNQu0gSbE_eaUUsl",
+			"videoURL": "https://www.youtube.com/embed/QjOWz9avkg8",
 			"descripcion": "¿Te falta motivación para estudiar? En este video, te compartimos consejos prácticos para mantenerte motivado y cómo los buenos hábitos pueden transformar tu forma de aprender. Descubre estrategias para mantener el enfoque, mejorar tu productividad y construir una rutina que potencie tu rendimiento académico. ¡Empieza a estudiar con más energía y logra tus metas!"
 		}
 	]
