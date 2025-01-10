@@ -22,10 +22,17 @@ async function listarVideos() {
   }
 }
 
+// Función para filtrar lista de videos:
+function filtrarLista(lista, categoriaBuscada) {
+  return lista.filter((elemento) => elemento.categoria === categoriaBuscada);
+}
+
 
 function Categorias() {
-
   const { videos, setVideos } = useContext(HomeContext);
+  let videosFrontend = []; // Guarda la lista categoría Frontend.
+  let videosBackend = []; // Guarda la lista categoría Backend.
+  let videosInnGest = []; // Guarda la lista categoría Innovación y Gestión.
 
   // Lee la lista de videos desde json-server:
   useEffect(() => {
@@ -38,9 +45,14 @@ function Categorias() {
       });
   }, []);
 
-  console.log(videos);
-
   
+  videosFrontend = filtrarLista(videos, "Frontend");
+  videosBackend = filtrarLista(videos, "Backend");
+  videosInnGest = filtrarLista(videos, "Innovación y Gestión");
+  
+  /* console.log(videos); */
+  /* console.log(videosInnGest); */
+
   return (
     <CategoriasStyled>
       <Categoria nombre="frontend" fondo="#6bd1ff" />
