@@ -6,6 +6,7 @@ import {
   InputLabel,
   FormControl,
   Button,
+  FormHelperText,
 } from "@mui/material";
 
 import "@fontsource/roboto/300.css";
@@ -35,9 +36,26 @@ function Formulario() {
 
   const [selectedValue, setSelectedValue] = useState("");
 
+  // Estado para manejar errores en los campos del Formulario:
+  const [errores, setErrores] = useState({
+    titulo: false,
+    categoria: false,
+    imgURL: false,
+    videoURL: false,
+    descripcion: false
+  });
+
 
   // Función asíncrona (POST) para enviar Video:
-  async function enviarVideo() {
+  async function enviarVideo(e) {
+    e.preventDefault();
+    // 1. Validar campos antes de realizar cualquier operación
+    if (!validarCampos()) {
+      console.log("Errores en los datos:", errores);
+      return; // Detener el envío si hay errores
+    }
+
+
     try {
       const conexion = await fetch("http://localhost:3001/videos", {
         method: "POST",
@@ -54,6 +72,15 @@ function Formulario() {
           videoURL: "",
           descripcion: "",
         }); // Resetear el formulario.
+
+        setErrores({
+          titulo: false,
+          categoria: false,
+          imgURL: false,
+          videoURL: false,
+          descripcion: false,
+        });
+
       } else {
         alert("Error al guardar el video.");
       }
@@ -61,6 +88,7 @@ function Formulario() {
       console.error("Error en el POST:", error);
     }
   }
+
 
   /* Maneja el valor del campo Select: */
   const handleChange = (event) => {
@@ -73,6 +101,22 @@ function Formulario() {
     });
   };
 
+
+  const validarCampos = () => {
+    const nuevosErrores = {
+      titulo: datos.titulo.trim() === "", // Error si el campo está vacío.
+      categoria: datos.categoria === "", // Error si no se selecciona una categoría.
+      imgURL: datos.imgURL.trim() === "",
+      videoURL: datos.videoURL.trim() === "",
+      descripcion: datos.descripcion.trim() === "",
+    };
+    setErrores(nuevosErrores);
+
+    // Retorna true si no hay errores:
+    return !Object.values(nuevosErrores).some((error) => error);
+  };
+
+
   return (
     <>
       <TextField
@@ -80,7 +124,10 @@ function Formulario() {
         label="Título"
         name="titulo"
         value={datos.titulo}
+        error={errores.titulo} // Indica si hay un error.
+        helperText={errores.titulo ? "Ingrese un título para el video" : ""}
         onChange={handleChange}
+        onFocus={() => setErrores({ ...errores, titulo: false })}
         variant="outlined"
         margin="normal"
         size="medium"
@@ -95,14 +142,18 @@ function Formulario() {
           label="Categoria"
           name="categoria"
           value={selectedValue}
+          error={errores.categoria} // Indica si hay un error.
           onChange={handleChange}
+          onFocus={() => setErrores({ ...errores, categoria: false })}
           fullWidth
         >
           <MenuItem value="Frontend">Frontend</MenuItem>
           <MenuItem value="Backend">Backend</MenuItem>
           <MenuItem value="Innovación y Gestión">Innovación y Gestión</MenuItem>
-          <MenuItem value="" disabled>Categoría</MenuItem>
         </Select>
+        <FormHelperText>
+          {errores.categoria ? "Seleccione una categoría válida" : ""}
+        </FormHelperText>
       </FormControl>
 
       <TextField
@@ -110,7 +161,12 @@ function Formulario() {
         label="Imagen"
         name="imgURL"
         value={datos.imgURL}
+        error={errores.imgURL} // Indica si hay un error.
+        helperText={
+          errores.imgURL ? "Ingrese una URL para la miniatura del vídeo" : ""
+        }
         onChange={handleChange}
+        onFocus={() => setErrores({ ...errores, imgURL: false })}
         variant="outlined"
         margin="normal"
         size="medium"
@@ -123,7 +179,10 @@ function Formulario() {
         label="Vídeo"
         name="videoURL"
         value={datos.videoURL}
+        error={errores.videoURL} // Indica si hay un error.
+        helperText={errores.videoURL ? "Ingrese una URL para el vídeo" : ""}
         onChange={handleChange}
+        onFocus={() => setErrores({ ...errores, videoURL: false })}
         variant="outlined"
         margin="normal"
         size="medium"
@@ -136,7 +195,12 @@ function Formulario() {
         label="Descripcion"
         name="descripcion"
         value={datos.descripcion}
+        error={errores.descripcion} // Indica si hay un error.
+        helperText={
+          errores.descripcion ? "Ingrese una descripción para el vídeo" : ""
+        }
         onChange={handleChange}
+        onFocus={() => setErrores({ ...errores, descripcion: false })}
         variant="outlined"
         margin="normal"
         size="medium"
