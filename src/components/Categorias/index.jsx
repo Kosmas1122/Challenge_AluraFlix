@@ -29,10 +29,10 @@ function filtrarLista(lista, categoriaBuscada) {
 
 
 function Categorias() {
-  const { videos, setVideos } = useContext(HomeContext);
-  let videosFrontend = []; // Guarda la lista categoría Frontend.
-  let videosBackend = []; // Guarda la lista categoría Backend.
-  let videosInnGest = []; // Guarda la lista categoría Innovación y Gestión.
+  const { videos, setVideos, videosFrontend, videosBackend, videosInnGest } = useContext(HomeContext);
+  /* let videosFrontend = []; // Guarda la lista categoría Frontend. */
+  /* let videosBackend = []; // Guarda la lista categoría Backend. */
+  /* let videosInnGest = []; // Guarda la lista categoría Innovación y Gestión. */
 
   // Lee la lista de videos desde json-server:
   useEffect(() => {
@@ -46,18 +46,18 @@ function Categorias() {
   }, []);
 
   
-  videosFrontend = filtrarLista(videos, "Frontend");
-  videosBackend = filtrarLista(videos, "Backend");
-  videosInnGest = filtrarLista(videos, "Innovación y Gestión");
+  /* videosFrontend = filtrarLista(videos, "Frontend"); */
+ /*  videosBackend = filtrarLista(videos, "Backend"); */
+  /* videosInnGest = filtrarLista(videos, "Innovación y Gestión"); */
   
   /* console.log(videos); */
-  /* console.log(videosInnGest); */
+  /* console.log(videosFrontend); */
 
   return (
     <CategoriasStyled>
-      <Categoria nombre="frontend" fondo="#6bd1ff" />
-      <Categoria nombre="backend" fondo="#00c86f" />
-      <Categoria nombre="innovación y gestión" fondo="#ffba05" />
+      <Categoria nombre="frontend" fondo="#6bd1ff" videos={videosFrontend} />
+      <Categoria nombre="backend" fondo="#00c86f" videos={videosBackend} />
+      <Categoria nombre="innovación y gestión" fondo="#ffba05" videos={videosInnGest} />
     </CategoriasStyled>
   );
 }
