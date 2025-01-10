@@ -42,16 +42,15 @@ const CategoriaStyled = styled.div`
 `;
 
 function Categoria(props) {
-
-  console.log(props.videos); // SONDA.
-
   return (
     <CategoriaStyled fondo={props.fondo}>
       <h1> {props.nombre} </h1>
       <div className="cards">
-        <CardVideo fuente="https://www.youtube.com/embed/ov7vA5HFe6w" />
-        <CardVideo fuente="https://www.youtube.com/embed/RLZ7-ZfkwOE" />
-        <CardVideo fuente="https://www.youtube.com/embed/TNJbxPaB6cA" />
+        {
+          props.videos.map((video) => 
+            <CardVideo key={video.id} fuente={video.videoURL} />
+          )
+        }
       </div>
     </CategoriaStyled>
   );
