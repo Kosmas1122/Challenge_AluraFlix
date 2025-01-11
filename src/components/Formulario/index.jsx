@@ -51,20 +51,29 @@ function Formulario() {
   
   // Se establece la tarea a realizar según el Formulario abierto:
   function tareaFormulario(e) {
+    e.preventDefault();
     console.log("isModalOpen: ", isModalOpen);
 
+    // 1. Validar campos:
+    if (!validarCampos()) {
+      console.log("Errores en los datos:", errores);
+      return; // Detener el flujo si hay errores
+    }
+
+    // 2. Realizar la acción correspondiente:
     if (isModalOpen) {
       console.log("Editando video en Modal...");
-    }
-    else {
+    } else {
       console.log("Creando nuevo video...");
       enviarVideo(e);
     }
   }
 
+  
+
   // Función asíncrona (POST) para enviar Video:
-  async function enviarVideo(e) {
-    e.preventDefault();
+  async function enviarVideo() {
+    
     // 1. Validar campos antes de realizar cualquier operación
     if (!validarCampos()) {
       console.log("Errores en los datos:", errores);
