@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 // Crea el contexto:
-export const HomeContext = createContext();
+export const HomeContext = createContext(false);
 
 
 // Función para filtrar lista de videos:

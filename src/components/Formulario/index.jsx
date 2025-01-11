@@ -15,7 +15,8 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { HomeContext } from "../../context/HomeContext";
 
 const Div = styled.div`
   display: flex;
@@ -45,6 +46,21 @@ function Formulario() {
     descripcion: false
   });
 
+  
+  const isModalOpen = useContext(HomeContext);
+  
+  // Se establece la tarea a realizar según el Formulario abierto:
+  function tareaFormulario(e) {
+    console.log("isModalOpen: ", isModalOpen);
+
+    if (isModalOpen) {
+      console.log("Editando video en Modal...");
+    }
+    else {
+      console.log("Creando nuevo video...");
+      enviarVideo(e);
+    }
+  }
 
   // Función asíncrona (POST) para enviar Video:
   async function enviarVideo(e) {
@@ -54,7 +70,6 @@ function Formulario() {
       console.log("Errores en los datos:", errores);
       return; // Detener el envío si hay errores
     }
-
 
     try {
       const conexion = await fetch("http://localhost:3001/videos", {
@@ -212,7 +227,8 @@ function Formulario() {
       />
 
       <Div>
-        <Button variant="contained" size="large" onClick={enviarVideo}>
+        {/* <Button variant="contained" size="large" onClick={enviarVideo}> */}
+          <Button variant="contained" size="large" onClick={(e) => tareaFormulario(e)}>
           Guardar
         </Button>
         <Button variant="contained" size="large">

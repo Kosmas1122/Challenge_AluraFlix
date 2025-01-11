@@ -65,10 +65,13 @@ export default function Modal() {
       <Overlay />
       <ModalStyled>
         <Typography variant="h3" align="center" component="h1">Editar Card</Typography>
-        <Formulario />
+        {/* <Formulario /> */}
+        <HomeContext.Provider value={isModalOpen}><Formulario /></HomeContext.Provider>
         <Button className="BtnCerrar" variant="contained" size="large" onClick={closeModal}>Cerrar</Button>
       </ModalStyled>
-      ;
     </>
   );
 }
+
+
+
