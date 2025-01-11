@@ -24,7 +24,10 @@ export const HomeProvider = ({ children }) => {
   videosBackend = filtrarLista(videos, "Backend");
   videosInnGest = filtrarLista(videos, "Innovación y Gestión");
 
-  const openModal = () => setIsModalOpen(true);
+  const openModal = (id) => {
+    setIsModalOpen(true);
+    console.log("Video ID: ", id);
+  };
   const closeModal = () => setIsModalOpen(false);
 
   return (

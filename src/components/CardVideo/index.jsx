@@ -51,13 +51,16 @@ export default function CardVideo(props) {
       />
       <BotonesCardStyled>
         <button>
-          <img src="/public/iconos/TablerTrashX.svg" height="35px" alt="Borrar" />
-        </button>
-        
-        <button onClick = {openModal}>
-          <img src="/public/iconos/LineMdEdit.svg" height="35px" alt="Editar" />
+          <img
+            src="/public/iconos/TablerTrashX.svg"
+            height="35px"
+            alt="Borrar"
+          />
         </button>
 
+        <button onClick={() => openModal(props.id)}>
+          <img src="/public/iconos/LineMdEdit.svg" height="35px" alt="Editar" />
+        </button>
       </BotonesCardStyled>
     </CardStyled>
   );

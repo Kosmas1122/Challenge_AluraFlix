@@ -47,9 +47,9 @@ function Categoria(props) {
       <h1> {props.nombre} </h1>
       <div className="cards">
         {
-          props.videos.map((video) => 
-            <CardVideo key={video.id} fuente={video.videoURL} />
-          )
+          props.videos.map((video) => (
+          <CardVideo key={video.id} id={video.id} fuente={video.videoURL} />
+          ))
         }
       </div>
     </CategoriaStyled>
