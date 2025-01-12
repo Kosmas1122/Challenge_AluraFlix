@@ -15,7 +15,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { HomeContext } from "../../context/HomeContext";
 
 const Div = styled.div`
@@ -47,6 +47,19 @@ function Formulario() {
     descripcion: false
   });
 
+  useEffect(() => {
+    //console.log(cardSelected);
+    if (cardSelected) {
+      setDatos({
+        id: cardSelected.id || uuidv4(),
+        titulo: cardSelected.titulo || "",
+        categoria: cardSelected.categoria || "",
+        imgURL: cardSelected.imgURL || "",
+        videoURL: cardSelected.videoURL || "",
+        descripcion: cardSelected.descripcion || "",
+      });
+    }
+  }, [cardSelected]);
   
   const isModalOpen = useContext(HomeContext);
   
@@ -118,7 +131,7 @@ function Formulario() {
 
   /* Maneja el valor del campo Select: */
   const handleChange = (event) => {
-    setSelectedValue(event.target.value); // Actualiza el estado con el valor seleccionado en Select.
+    //setSelectedValue(event.target.value); // Actualiza el estado con el valor seleccionado en Select.
 
     const { name, value } = event.target;
     setDatos({
@@ -167,7 +180,7 @@ function Formulario() {
           labelId="cat"
           label="Categoria"
           name="categoria"
-          value={selectedValue}
+          value={datos.categoria}
           error={errores.categoria} // Indica si hay un error.
           onChange={handleChange}
           onFocus={() => setErrores({ ...errores, categoria: false })}
@@ -239,7 +252,11 @@ function Formulario() {
 
       <Div>
         {/* <Button variant="contained" size="large" onClick={enviarVideo}> */}
-          <Button variant="contained" size="large" onClick={(e) => tareaFormulario(e)}>
+        <Button
+          variant="contained"
+          size="large"
+          onClick={(e) => tareaFormulario(e)}
+        >
           Guardar
         </Button>
         <Button variant="contained" size="large">

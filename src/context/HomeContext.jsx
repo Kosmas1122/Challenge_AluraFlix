@@ -15,7 +15,7 @@ function filtrarLista(lista, categoriaBuscada) {
 export const HomeProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videos, setVideos] = useState([]);
-  const [cardSelected, setCardSelected] = useState({});
+  const [cardSelected, setCardSelected] = useState(null);
 
   let videosFrontend = []; // Guarda la lista categoría Frontend.
   let videosBackend = []; // Guarda la lista categoría Backend.
@@ -31,7 +31,7 @@ export const HomeProvider = ({ children }) => {
     setCardSelected(videos.find((video) => video.id === id));
   };
   
-  console.log("Card seleccionado: ", cardSelected);
+  //console.log("Card seleccionado: ", cardSelected);
 
   const closeModal = () => setIsModalOpen(false);
 
@@ -46,7 +46,8 @@ export const HomeProvider = ({ children }) => {
         videosFrontend,
         videosBackend,
         videosInnGest,
-        cardSelected
+        cardSelected, 
+        setCardSelected
       }}
     >
       {children}
