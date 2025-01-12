@@ -44,7 +44,7 @@ function Formulario() {
     categoria: false,
     imgURL: false,
     videoURL: false,
-    descripcion: false
+    descripcion: false,
   });
 
   useEffect(() => {
@@ -60,9 +60,9 @@ function Formulario() {
       });
     }
   }, [cardSelected]);
-  
+
   const isModalOpen = useContext(HomeContext);
-  
+
   // Se establece la tarea a realizar según el Formulario abierto:
   function tareaFormulario(e) {
     e.preventDefault();
@@ -78,17 +78,15 @@ function Formulario() {
     if (isModalOpen) {
       console.log("Editando video en Modal...");
       console.log("Card seleccionada: ", cardSelected);
+      actualizarVideo();
     } else {
       console.log("Creando nuevo video...");
       enviarVideo(e);
     }
   }
 
-  
-
   // Función asíncrona (POST) para enviar Video:
   async function enviarVideo() {
-    
     // 1. Validar campos antes de realizar cualquier operación
     if (!validarCampos()) {
       console.log("Errores en los datos:", errores);
@@ -119,7 +117,6 @@ function Formulario() {
           videoURL: false,
           descripcion: false,
         });
-
       } else {
         alert("Error al guardar el video.");
       }
@@ -127,6 +124,43 @@ function Formulario() {
       console.error("Error en el POST:", error);
     }
   }
+
+  // Función asíncrona (PUT) para actualizar Video :
+  async function actualizarVideo() {
+    try {
+      // Verificar si estamos editando una tarjeta existente
+      const url = `http://localhost:3001/videos/${cardSelected.id}`; // Usar el ID de la tarjeta seleccionada para actualizar
+      const conexion = await fetch(url, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(datos),
+      });
+
+      if (conexion.ok) {
+        alert("¡Video actualizado exitosamente!");
+        setDatos({
+          titulo: "",
+          categoria: "",
+          imgURL: "",
+          videoURL: "",
+          descripcion: "",
+        }); // Resetear el formulario
+
+        setErrores({
+          titulo: false,
+          categoria: false,
+          imgURL: false,
+          videoURL: false,
+          descripcion: false,
+        });
+      } else {
+        alert("Error al actualizar el video.");
+      }
+    } catch (error) {
+      console.error("Error en el PUT:", error);
+    }
+  }
+
 
 
   /* Maneja el valor del campo Select: */
@@ -139,7 +173,6 @@ function Formulario() {
       [name]: value,
     });
   };
-
 
   const validarCampos = () => {
     const nuevosErrores = {
@@ -154,7 +187,6 @@ function Formulario() {
     // Retorna true si no hay errores:
     return !Object.values(nuevosErrores).some((error) => error);
   };
-
 
   return (
     <>
