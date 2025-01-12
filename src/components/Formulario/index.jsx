@@ -161,6 +161,26 @@ function Formulario() {
     }
   }
 
+  // Función para limpiar Formulario:
+  const limpiarFormulario = () => {
+    setDatos({
+      id: uuidv4(),
+      titulo: "",
+      categoria: "",
+      imgURL: "",
+      videoURL: "",
+      descripcion: "",
+    });
+
+    setErrores({
+      titulo: false,
+      categoria: false,
+      imgURL: false,
+      videoURL: false,
+      descripcion: false,
+    });
+  };
+
 
 
   /* Maneja el valor del campo Select: */
@@ -291,7 +311,7 @@ function Formulario() {
         >
           Guardar
         </Button>
-        <Button variant="contained" size="large">
+        <Button variant="contained" size="large" onClick={limpiarFormulario}>
           Limpiar
         </Button>
       </Div>
