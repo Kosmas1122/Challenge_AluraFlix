@@ -40,7 +40,7 @@ const BotonesCardStyled = styled.div`
 
 export default function CardVideo(props) {
 
-  const { openModal } = useContext(HomeContext);  
+  const { openModal, eliminarVideo } = useContext(HomeContext);  
 
   return (
     <CardStyled>
@@ -50,12 +50,8 @@ export default function CardVideo(props) {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       />
       <BotonesCardStyled>
-        <button>
-          <img
-            src="/public/iconos/TablerTrashX.svg"
-            height="35px"
-            alt="Borrar"
-          />
+        <button onClick={() => eliminarVideo(props.id)}>
+          <img src="/public/iconos/TablerTrashX.svg" height="35px" alt="Borrar" />
         </button>
 
         <button onClick={() => openModal(props.id)}>

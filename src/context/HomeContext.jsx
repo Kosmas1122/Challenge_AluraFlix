@@ -30,6 +30,46 @@ export const HomeProvider = ({ children }) => {
     //let cardSelected = videos.find((video) => video.id === id);
     setCardSelected(videos.find((video) => video.id === id));
   };
+
+
+
+
+
+
+
+
+
+  async function eliminarVideo(id) {
+    try {
+      const url = `http://localhost:3001/videos/${id}`; // Usar el ID de la tarjeta seleccionada.
+      // Llamada a la API para eliminar el producto del db.json:
+      const conexion = await fetch(url, {
+        method: "DELETE",
+      });
+
+      if (conexion.ok) {
+        // Si la eliminación es exitosa, elimina el elemento del HTML:
+        const video = document.getElementById(id);
+        if (video) {
+          video.remove();
+          console.log(`Video con ID ${id} eliminado exitosamente.`);
+        }
+      } else {
+        console.error("Error al eliminar el video:", conexion.status);
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+    } 
+
+  }
+
+
+
+
+
+
+
+
   
   //console.log("Card seleccionado: ", cardSelected);
 
@@ -47,7 +87,8 @@ export const HomeProvider = ({ children }) => {
         videosBackend,
         videosInnGest,
         cardSelected, 
-        setCardSelected
+        setCardSelected,
+        eliminarVideo
       }}
     >
       {children}
