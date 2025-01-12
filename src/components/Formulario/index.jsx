@@ -36,6 +36,7 @@ function Formulario() {
   });
 
   const [selectedValue, setSelectedValue] = useState("");
+  const { cardSelected } = useContext(HomeContext);
 
   // Estado para manejar errores en los campos del Formulario:
   const [errores, setErrores] = useState({
@@ -63,6 +64,7 @@ function Formulario() {
     // 2. Realizar la acción correspondiente:
     if (isModalOpen) {
       console.log("Editando video en Modal...");
+      console.log("Card seleccionada: ", cardSelected);
     } else {
       console.log("Creando nuevo video...");
       enviarVideo(e);
