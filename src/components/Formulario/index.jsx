@@ -35,7 +35,7 @@ function Formulario() {
     descripcion: "",
   });
 
-  const [selectedValue, setSelectedValue] = useState("");
+  //const [selectedValue, setSelectedValue] = useState("");
   const { cardSelected } = useContext(HomeContext);
 
   // Estado para manejar errores en los campos del Formulario:
@@ -81,12 +81,12 @@ function Formulario() {
       actualizarVideo();
     } else {
       console.log("Creando nuevo video...");
-      enviarVideo(e);
+      nuevoVideo(e);
     }
   }
 
   // Función asíncrona (POST) para enviar Video:
-  async function enviarVideo() {
+  async function nuevoVideo() {
     // 1. Validar campos antes de realizar cualquier operación
     if (!validarCampos()) {
       console.log("Errores en los datos:", errores);
@@ -303,7 +303,7 @@ function Formulario() {
       />
 
       <Div>
-        {/* <Button variant="contained" size="large" onClick={enviarVideo}> */}
+        {/* <Button variant="contained" size="large" onClick={nuevoVideo}> */}
         <Button
           variant="contained"
           size="large"
