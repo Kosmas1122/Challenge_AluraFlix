@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const FooterStyled = styled.footer`
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -20,6 +21,14 @@ const LogoStyled = styled.img`
   width: 168.45px;
   height: 40px;
   align-content: center;
+
+  @media (max-width: 430px) {
+    display: none;
+  }
+
+  @media (min-width: 1024px){
+    display: block;
+  }
 `;
 
 export default function Footer() {

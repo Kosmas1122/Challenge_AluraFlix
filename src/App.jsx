@@ -26,7 +26,7 @@ function App() {
         <Route path="/" element={<HomeProvider> <Home /> </HomeProvider>} />
         <Route path="/NuevoVideo" element={<NuevoVideo />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
