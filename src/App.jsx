@@ -20,13 +20,13 @@ import Footer from './components/Footer';
 function App() {
   return (
     <Router>
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <Header />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomeProvider> <Home /> </HomeProvider>} />
         <Route path="/NuevoVideo" element={<NuevoVideo />} />
-      </Routes>
-      <Footer />
+      </Routes> */}
+      {/* <Footer /> */}
     </Router>
   );
 }
