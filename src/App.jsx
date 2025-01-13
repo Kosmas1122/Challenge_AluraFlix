@@ -22,10 +22,10 @@ function App() {
     <Router>
       {/* <GlobalStyles /> */}
       <Header />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<HomeProvider> <Home /> </HomeProvider>} />
         <Route path="/NuevoVideo" element={<NuevoVideo />} />
-      </Routes> */}
+      </Routes>
       {/* <Footer /> */}
     </Router>
   );

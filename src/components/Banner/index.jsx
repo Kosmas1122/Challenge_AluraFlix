@@ -2,8 +2,13 @@ import styled from "styled-components";
 import BannerVideo from "./BannerVideo";
 
 const BannerStyled = styled.section`
-  // Desktop - Tablet:
-  @media (min-width: 480px) {
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  @media (min-width: 1024px){
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -25,9 +30,8 @@ const BannerStyled = styled.section`
       height: 333px;
       width: 100%;
       margin: 190px 40px 0px 40px;
-      /* border: 1px solid blue; */
     }
-
+    
     div.contenido {
       display: flex;
       flex-direction: column;
@@ -61,9 +65,11 @@ const BannerStyled = styled.section`
     }
 
     p {
-      width: 662.84px;
-      height: 110px;
+      max-width: 340px;
+      text-align: justify;
+      height: auto;
       color: #f5f5f5;
+      background-color: rgba(60, 60, 60, 0.22);
       font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
       font-size: 18px;
@@ -86,7 +92,7 @@ export default function Banner() {
             aplicar todos los conocimientos adquiridos en la formación React.
           </p>
         </div>
-        {/* <BannerVideo /> */}
+        <BannerVideo />
       </div>
     </BannerStyled>
   );
