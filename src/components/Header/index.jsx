@@ -5,12 +5,12 @@ import { useState } from "react";
 
 const HeaderStyled = styled.header`
   // Phone:
-  @media (max-width: 479px) {
+  @media (max-width: 430px) {
     display: none;
   }
 
   // Tablets - Desktop:
-  @media (min-width: 480px) and (max-width: 1024px) {
+  @media (min-width: 430px) and (max-width: 1024px) {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -47,17 +47,17 @@ const HeaderStyled = styled.header`
 const LogoStyled = styled.img`
     width: 168.45px;
     height: 40px;
-    margin-left: 51px;
+    margin-left: 25px;
 `;
 
 const BotonesStyled = styled.div`
   // Phone:
-  @media (max-width: 479px) {
+  @media (max-width: 430px) {
     display: none;
   }
 
   // Tablets - Desktop:
-  @media (min-width: 480px) and (max-width: 1024px) {
+  @media (min-width: 430px) and (max-width: 1024px) {
     display: flex;
     flex-direction: row;
     gap: 25px;
