@@ -33,15 +33,29 @@ const ModalStyled = styled.form`
   left: 50%;
   transform: translateX(-50%);
   height: 720px;
-  width: 774px;
-  padding: 0px 100px;
+  //padding: 0px 100px;
   border: 5px solid #6bd1ff;
   border-radius: 10px;
   background: #dcf3ff;
   background-blend-mode: normal;
-  
+
+  @media (max-width: 430px) {
+    width: 370px;
+    padding: 0px 15px;
+  }
+
+  @media (min-width: 431px) and (max-width: 1023px) {
+    width: 80%;
+    padding: 0px 25px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 824px;
+    padding: 0px 100px;
+  }
+
   h1 {
-    margin: 40px 0px 20px 0px;
+    margin: 75px 0px 20px 0px;
     color: #2271d1;
   }
 

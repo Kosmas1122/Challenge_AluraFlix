@@ -19,7 +19,6 @@ const CategoriaStyled = styled.div`
   box-shadow: 0px 5px 29px ${(props) => props.fondo};
   background: #262626;
   background-blend-mode: normal;
-  border: 2px solid red;
 
   h1 {
     box-sizing: border-box;
