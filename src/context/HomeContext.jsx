@@ -27,17 +27,8 @@ export const HomeProvider = ({ children }) => {
 
   const openModal = (id) => {
     setIsModalOpen(true);
-    //let cardSelected = videos.find((video) => video.id === id);
     setCardSelected(videos.find((video) => video.id === id));
   };
-
-
-
-
-
-
-
-
 
   async function eliminarVideo(id) {
     try {
@@ -63,15 +54,6 @@ export const HomeProvider = ({ children }) => {
 
   }
 
-
-
-
-
-
-
-
-  
-  //console.log("Card seleccionado: ", cardSelected);
 
   const closeModal = () => setIsModalOpen(false);
 

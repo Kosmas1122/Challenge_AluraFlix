@@ -61,7 +61,7 @@ function Formulario() {
     }
   }, [cardSelected]);
 
-  const isModalOpen = useContext(HomeContext);
+  const { isModalOpen } = useContext(HomeContext);
 
   // Se establece la tarea a realizar según el Formulario abierto:
   function tareaFormulario(e) {
@@ -79,6 +79,7 @@ function Formulario() {
       console.log("Editando video en Modal...");
       console.log("Card seleccionada: ", cardSelected);
       actualizarVideo();
+
     } else {
       console.log("Creando nuevo video...");
       nuevoVideo(e);
@@ -102,6 +103,7 @@ function Formulario() {
 
       if (conexion.ok) {
         alert("¡Video guardado exitosamente!");
+
         setDatos({
           titulo: "",
           categoria: "",
@@ -138,6 +140,7 @@ function Formulario() {
 
       if (conexion.ok) {
         alert("¡Video actualizado exitosamente!");
+        
         setDatos({
           titulo: "",
           categoria: "",
@@ -153,6 +156,7 @@ function Formulario() {
           videoURL: false,
           descripcion: false,
         });
+
       } else {
         alert("Error al actualizar el video.");
       }
@@ -303,7 +307,7 @@ function Formulario() {
       />
 
       <Div>
-        {/* <Button variant="contained" size="large" onClick={nuevoVideo}> */}
+        
         <Button
           variant="contained"
           size="large"
