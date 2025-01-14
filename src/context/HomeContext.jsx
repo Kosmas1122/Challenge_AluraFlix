@@ -10,7 +10,6 @@ function filtrarLista(lista, categoriaBuscada) {
 }
 
 
-
 // Crea el proveedor:
 export const HomeProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,13 +29,6 @@ export const HomeProvider = ({ children }) => {
     //let cardSelected = videos.find((video) => video.id === id);
     setCardSelected(videos.find((video) => video.id === id));
   };
-
-
-
-
-
-
-
 
 
   async function eliminarVideo(id) {
@@ -63,15 +55,6 @@ export const HomeProvider = ({ children }) => {
 
   }
 
-
-
-
-
-
-
-
-  
-  //console.log("Card seleccionado: ", cardSelected);
 
   const closeModal = () => setIsModalOpen(false);
 
