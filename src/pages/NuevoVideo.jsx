@@ -11,10 +11,8 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 
-
 const FormStyled = styled.form`
   background-color: #dcf3ff;
-  padding: 0px 400px 40px 400px;
 
   h1 {
     padding: 35px 0px;
@@ -22,7 +20,20 @@ const FormStyled = styled.form`
     font-weight: 700;
     color: #2271d1;
   }
+
+  @media (max-width: 430px) {
+    padding: 0px 20px 40px 20px;
+  }
+
+  @media (min-width: 431px) and (max-width: 1023px) {
+    padding: 0px 60px 30px 60px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0px 300px 50px 300px;
+  }
 `;
+
 
 export default function NuevoVideo() {
   return (
