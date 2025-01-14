@@ -5,13 +5,21 @@ const CategoriaStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin: 90px 45px;
+  margin: 90px 10px;
+  width: auto;
+
+  @media (max-width: 430px) {
+    margin-top: 30px;
+    margin-bottom: 90px;
+  }
+
   padding-bottom: 25px;
   border-bottom: 7px solid ${(props) => props.fondo};
   border-radius: 15px;
   box-shadow: 0px 5px 29px ${(props) => props.fondo};
   background: #262626;
   background-blend-mode: normal;
+  border: 2px solid red;
 
   h1 {
     box-sizing: border-box;

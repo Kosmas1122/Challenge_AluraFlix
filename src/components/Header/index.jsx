@@ -10,7 +10,7 @@ const HeaderStyled = styled.header`
   }
 
   // Tablets - Desktop:
-  @media (min-width: 430px) and (max-width: 1024px) {
+  @media (min-width: 431px) and (max-width: 1024px) {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
