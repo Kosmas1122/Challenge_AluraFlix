@@ -35,7 +35,6 @@ function Formulario() {
     descripcion: "",
   });
 
-  //const [selectedValue, setSelectedValue] = useState("");
   const { cardSelected } = useContext(HomeContext);
 
   // Estado para manejar errores en los campos del Formulario:
@@ -48,7 +47,6 @@ function Formulario() {
   });
 
   useEffect(() => {
-    //console.log(cardSelected);
     if (cardSelected) {
       setDatos({
         id: cardSelected.id || uuidv4(),
@@ -185,8 +183,6 @@ function Formulario() {
 
   /* Maneja el valor del campo Select: */
   const handleChange = (event) => {
-    //setSelectedValue(event.target.value); // Actualiza el estado con el valor seleccionado en Select.
-
     const { name, value } = event.target;
     setDatos({
       ...datos,
@@ -303,7 +299,6 @@ function Formulario() {
       />
 
       <Div>
-        {/* <Button variant="contained" size="large" onClick={nuevoVideo}> */}
         <Button
           variant="contained"
           size="large"
