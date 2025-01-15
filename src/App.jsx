@@ -21,7 +21,8 @@ function App() {
       <HomeProvider><Header/></HomeProvider>
       <Routes>
         <Route path="/" element={<HomeProvider> <Home /> </HomeProvider>} />
-        <Route path="/NuevoVideo" element={<NuevoVideo />} />
+        <Route path="/NuevoVideo" element={<HomeProvider><NuevoVideo /></HomeProvider>} />
+        {/* <Route path="/NuevoVideo" element={<NuevoVideo />} /> */}
       </Routes>
       <HomeProvider><Footer /></HomeProvider>
     </Router>
