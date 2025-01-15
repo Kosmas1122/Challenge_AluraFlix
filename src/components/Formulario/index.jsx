@@ -25,30 +25,17 @@ const Div = styled.div`
 `;
 
 function Formulario() {
-  // Estados:
-  const [datos, setDatos] = useState({
-    id: uuidv4(),
-    titulo: "",
-    categoria: "",
-    imgURL: "",
-    videoURL: "",
-    descripcion: "",
-  });
-
-  //const [selectedValue, setSelectedValue] = useState("");
-  const { cardSelected } = useContext(HomeContext);
-
-  // Estado para manejar errores en los campos del Formulario:
-  const [errores, setErrores] = useState({
-    titulo: false,
-    categoria: false,
-    imgURL: false,
-    videoURL: false,
-    descripcion: false,
-  });
+  
+  const { datos, setDatos, errores, setErrores, cardSelected, isModalOpen, limpiarFormulario } = useContext(HomeContext);
 
   useEffect(() => {
-    //console.log(cardSelected);
+    console.log("Entró a useEffect de isModalOpen...");
+    limpiarFormulario();
+  }, [isModalOpen]);
+  
+  useEffect(() => {
+    console.log(cardSelected);
+
     if (cardSelected) {
       setDatos({
         id: cardSelected.id || uuidv4(),
@@ -61,7 +48,7 @@ function Formulario() {
     }
   }, [cardSelected]);
 
-  const { isModalOpen } = useContext(HomeContext);
+  
 
   // Se establece la tarea a realizar según el Formulario abierto:
   function tareaFormulario(e) {
@@ -105,6 +92,7 @@ function Formulario() {
         alert("¡Video guardado exitosamente!");
 
         setDatos({
+          id: "",
           titulo: "",
           categoria: "",
           imgURL: "",
@@ -164,27 +152,6 @@ function Formulario() {
       console.error("Error en el PUT:", error);
     }
   }
-
-  // Función para limpiar Formulario:
-  const limpiarFormulario = () => {
-    setDatos({
-      id: uuidv4(),
-      titulo: "",
-      categoria: "",
-      imgURL: "",
-      videoURL: "",
-      descripcion: "",
-    });
-
-    setErrores({
-      titulo: false,
-      categoria: false,
-      imgURL: false,
-      videoURL: false,
-      descripcion: false,
-    });
-  };
-
 
 
   /* Maneja el valor del campo Select: */

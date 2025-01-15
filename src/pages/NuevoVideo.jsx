@@ -9,6 +9,8 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import { useEffect, useContext } from "react";
+import { HomeContext } from "../context/HomeContext";
 
 
 const FormStyled = styled.form`
@@ -36,6 +38,11 @@ const FormStyled = styled.form`
 
 
 export default function NuevoVideo() {
+
+  const { limpiarFormulario } = useContext(HomeContext);
+
+  useEffect(()=>{limpiarFormulario();}, [])
+
   return (
     <FormStyled>
       <Typography variant="h3" align="center" component="h1">

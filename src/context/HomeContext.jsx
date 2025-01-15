@@ -50,6 +50,26 @@ export const HomeProvider = ({ children }) => {
   };
 
   const closeModal = () => setIsModalOpen(false);
+
+  // Función para limpiar Formulario:
+  const limpiarFormulario = () => {
+    setDatos({
+      id: uuidv4(),
+      titulo: "",
+      categoria: "",
+      imgURL: "",
+      videoURL: "",
+      descripcion: "",
+    });
+
+    setErrores({
+      titulo: false,
+      categoria: false,
+      imgURL: false,
+      videoURL: false,
+      descripcion: false,
+    });
+  };
   // -----------------------------------------------------------
 
   // Funciones asíncronas:
@@ -96,7 +116,8 @@ export const HomeProvider = ({ children }) => {
         datos,
         setDatos,
         errores,
-        setErrores
+        setErrores,
+        limpiarFormulario
       }}
     >
       {children}
