@@ -22,7 +22,6 @@ import Footer from './components/Footer';
 function App() {
   return (
     <Router>
-      {/* <GlobalStyles /> */}
       <Header />
       <MensajeProvider><Mensaje /></MensajeProvider>  {/* Mensaje debe estar envuelto por MensajeProvider. */}
       <MensajeProp msg="Salud a todos!" />            {/* MensajeProp NO depende de MensajeProvider y funciona igual. */}
