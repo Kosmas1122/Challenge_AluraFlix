@@ -82,12 +82,17 @@ export const HomeProvider = ({ children }) => {
       });
 
       if (conexion.ok) {
-        // Si la eliminación es exitosa, elimina el elemento del HTML:
-        const video = document.getElementById(id);
+        // Si la eliminación es exitosa, elimina el elemento:
+        setVideos((videos) => videos.filter((video) => video.id !== id));
+        console.log(`Video con ID ${id} eliminado exitosamente.`);
+
+
+
+        /* const video = document.getElementById(id);
         if (video) {
           video.remove();
           console.log(`Video con ID ${id} eliminado exitosamente.`);
-        }
+        } */
       } else {
         console.error("Error al eliminar el video:", conexion.status);
       }
