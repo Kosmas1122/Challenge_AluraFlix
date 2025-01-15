@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Boton from "../Boton";
-import { useState } from "react";
+import { useContext } from "react";
+import { HomeContext } from "../../context/HomeContext";
+
 
 const HeaderStyled = styled.header`
   // Phone:
@@ -75,7 +77,7 @@ const BotonesStyled = styled.div`
 
 export default function Header() {
 
-  const [botonSeleccionado, setBotonSeleccionado] = useState("home");
+  const {botonSeleccionado, setBotonSeleccionado} = useContext(HomeContext);
 
   function alternarSeleccion(boton) {
     setBotonSeleccionado(boton);
