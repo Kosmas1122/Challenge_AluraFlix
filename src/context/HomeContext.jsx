@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-
+import { v4 as uuidv4 } from "uuid";
 
 // Función para filtrar lista de videos:
 function filtrarLista(lista, categoriaBuscada) {
@@ -16,6 +16,23 @@ export const HomeProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
   const [cardSelected, setCardSelected] = useState(null);
   const [botonSeleccionado, setBotonSeleccionado] = useState("home"); // Administra botones del <Header/>.
+
+  const [datos, setDatos] = useState({
+    id: uuidv4(),
+    titulo: "",
+    categoria: "",
+    imgURL: "",
+    videoURL: "",
+    descripcion: "",
+  }); // Gestiona los datos de un video en Formulario.
+
+  const [errores, setErrores] = useState({
+    titulo: false,
+    categoria: false,
+    imgURL: false,
+    videoURL: false,
+    descripcion: false,
+  }); // Estado para manejar errores en los campos del Formulario.
 
   let videosFrontend = []; // Guarda la lista categoría Frontend.
   let videosBackend = []; // Guarda la lista categoría Backend.
@@ -76,6 +93,10 @@ export const HomeProvider = ({ children }) => {
         eliminarVideo,
         botonSeleccionado,
         setBotonSeleccionado,
+        datos,
+        setDatos,
+        errores,
+        setErrores
       }}
     >
       {children}
