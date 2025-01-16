@@ -29,12 +29,12 @@ function Formulario() {
   const { datos, setDatos, errores, setErrores, cardSelected, isModalOpen, limpiarFormulario } = useContext(HomeContext);
 
   useEffect(() => {
-    console.log("Entró a useEffect de isModalOpen...");
+    //console.log("Entró a useEffect de isModalOpen...");
     limpiarFormulario();
   }, [isModalOpen]);
   
   useEffect(() => {
-    console.log(cardSelected);
+    //console.log(cardSelected);
 
     if (cardSelected) {
       setDatos({
@@ -63,8 +63,8 @@ function Formulario() {
 
     // 2. Realizar la acción correspondiente:
     if (isModalOpen) {
-      console.log("Editando video en Modal...");
-      console.log("Card seleccionada: ", cardSelected);
+      //console.log("Editando video en Modal...");
+      //console.log("Card seleccionada: ", cardSelected);
       actualizarVideo();
 
     } else {

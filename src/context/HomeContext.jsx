@@ -34,15 +34,15 @@ export const HomeProvider = ({ children }) => {
     descripcion: false,
   }); // Estado para manejar errores en los campos del Formulario.
 
-  let videosFrontend = []; // Guarda la lista categoría Frontend.
-  let videosBackend = []; // Guarda la lista categoría Backend.
-  let videosInnGest = []; // Guarda la lista categoría Innovación y Gestión.
+  //let videosFrontend = []; // Guarda la lista categoría Frontend.
+  //let videosBackend = []; // Guarda la lista categoría Backend.
+  //let videosInnGest = []; // Guarda la lista categoría Innovación y Gestión.
 
   // Funciones:
   // -----------------------------------------------------------
-  videosFrontend = filtrarLista(videos, "Frontend");
-  videosBackend = filtrarLista(videos, "Backend");
-  videosInnGest = filtrarLista(videos, "Innovación y Gestión");
+  //videosFrontend = filtrarLista(videos, "Frontend");
+  //videosBackend = filtrarLista(videos, "Backend");
+  //videosInnGest = filtrarLista(videos, "Innovación y Gestión");
 
   const openModal = (id) => {
     setIsModalOpen(true);
@@ -110,9 +110,6 @@ export const HomeProvider = ({ children }) => {
         closeModal,
         videos,
         setVideos,
-        videosFrontend,
-        videosBackend,
-        videosInnGest,
         cardSelected,
         setCardSelected,
         eliminarVideo,
