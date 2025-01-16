@@ -32,8 +32,7 @@ const ModalStyled = styled.form`
   top: 130px;
   left: 50%;
   transform: translateX(-50%);
-  height: 720px;
-  //padding: 0px 100px;
+  height: 760px;  //720
   border: 5px solid #6bd1ff;
   border-radius: 10px;
   background: #dcf3ff;
