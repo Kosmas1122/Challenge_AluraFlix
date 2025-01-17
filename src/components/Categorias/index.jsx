@@ -9,10 +9,10 @@ const CategoriasStyled = styled.div`
   background-blend-mode: normal;
 `;
 
-// Función para filtrar lista de videos
+/* // Función para filtrar lista de videos
 function filtrarLista(lista, categoriaBuscada) {
   return lista.filter((elemento) => elemento.categoria === categoriaBuscada);
-}
+} */
 
 
 function Categorias() {
@@ -20,9 +20,9 @@ function Categorias() {
   const { videos, setVideos } = useContext(HomeContext);
 
   // Estados adicionales para las listas filtradas
-  const [videosFrontend, setVideosFrontend] = useState([]);
-  const [videosBackend, setVideosBackend] = useState([]);
-  const [videosInnGest, setVideosInnGest] = useState([]);
+  //const [videosFrontend, setVideosFrontend] = useState([]);
+  //const [videosBackend, setVideosBackend] = useState([]);
+  //const [videosInnGest, setVideosInnGest] = useState([]);
 
 
   // Efecto para cargar la lista completa de videos desde json-server
@@ -42,18 +42,18 @@ function Categorias() {
   }, [setVideos]); // [setVideos].
 
   // Efecto para actualizar las listas derivadas cuando cambia `videos`
-  useEffect(() => {
-    setVideosFrontend(filtrarLista(videos, "Frontend"));
-    setVideosBackend(filtrarLista(videos, "Backend"));
-    setVideosInnGest(filtrarLista(videos, "Innovación y Gestión"));
+  /* useEffect(() => {
+    //setVideosFrontend(filtrarLista(videos, "Frontend"));
+    //setVideosBackend(filtrarLista(videos, "Backend"));
+    //setVideosInnGest(filtrarLista(videos, "Innovación y Gestión"));
   }, [videos]);  // [videos]     // Este efecto se ejecutará cada vez que cambie `videos`
-
+ */
 
   return (
     <CategoriasStyled>
-      <Categoria nombre="frontend" fondo="#6bd1ff" videos={videosFrontend} />
-      <Categoria nombre="backend" fondo="#00c86f" videos={videosBackend} />
-      <Categoria nombre="innovación y gestión" fondo="#ffba05" videos={videosInnGest} />
+      <Categoria nombre="Frontend" fondo="#6bd1ff" videos={videos} />
+      <Categoria nombre="Backend" fondo="#00c86f" videos={videos} />
+      <Categoria nombre="Innovación y Gestión" fondo="#ffba05" videos={videos} />
     </CategoriasStyled>
   );
 }

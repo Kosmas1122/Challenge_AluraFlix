@@ -48,7 +48,7 @@ const CategoriaStyled = styled.div`
   }
 `;
 
-function Categoria(props) {
+/* function Categoria(props) {
   return (
     <CategoriaStyled fondo={props.fondo}>
       <h1> {props.nombre} </h1>
@@ -63,4 +63,25 @@ function Categoria(props) {
   );
 }
 
-export default Categoria;
+export default Categoria; */
+
+
+export default function Categoria(props) {
+  return (
+    <CategoriaStyled fondo={props.fondo}>
+      <h1> {props.nombre} </h1>
+      <div className="cards">
+        {props.videos
+          .filter((video) => video.categoria === props.nombre)
+          .map((video) => (
+            <CardVideo key={video.id} id={video.id} fuente={video.videoURL} />
+          ))}
+      </div>
+    </CategoriaStyled>
+  );
+}
+
+
+/* function filtrarLista(lista, categoriaBuscada) {
+  return lista.filter((elemento) => elemento.categoria === categoriaBuscada);
+} */
