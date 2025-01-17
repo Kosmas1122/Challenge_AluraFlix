@@ -26,16 +26,14 @@ const Div = styled.div`
 
 function Formulario() {
   
-  const { datos, setDatos, errores, setErrores, cardSelected, isModalOpen, limpiarFormulario } = useContext(HomeContext);
+  const { setVideos, datos, setDatos, errores, setErrores, cardSelected, isModalOpen, limpiarFormulario } = useContext(HomeContext);
 
   useEffect(() => {
-    //console.log("Entró a useEffect de isModalOpen...");
     limpiarFormulario();
   }, [isModalOpen]);
   
   useEffect(() => {
-    //console.log(cardSelected);
-
+    
     if (cardSelected) {
       setDatos({
         id: cardSelected.id || uuidv4(),
@@ -53,7 +51,6 @@ function Formulario() {
   // Se establece la tarea a realizar según el Formulario abierto:
   function tareaFormulario(e) {
     e.preventDefault();
-    console.log("isModalOpen: ", isModalOpen);
 
     // 1. Validar campos:
     if (!validarCampos()) {
@@ -63,8 +60,6 @@ function Formulario() {
 
     // 2. Realizar la acción correspondiente:
     if (isModalOpen) {
-      //console.log("Editando video en Modal...");
-      //console.log("Card seleccionada: ", cardSelected);
       actualizarVideo();
 
     } else {
@@ -127,6 +122,12 @@ function Formulario() {
       });
 
       if (conexion.ok) {
+
+        const videoActualizado = await conexion.json();
+        setVideos((prevVideos) =>
+          prevVideos.map((video) => 
+          video.id === cardSelected.id ? videoActualizado : video));
+
         alert("¡Video actualizado exitosamente!");
         
         setDatos({
@@ -156,8 +157,6 @@ function Formulario() {
 
   /* Maneja el valor del campo Select: */
   const handleChange = (event) => {
-    //setSelectedValue(event.target.value); // Actualiza el estado con el valor seleccionado en Select.
-
     const { name, value } = event.target;
     setDatos({
       ...datos,

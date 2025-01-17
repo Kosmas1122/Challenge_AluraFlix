@@ -38,6 +38,7 @@ function Categorias() {
     }
 
     listarVideos();
+    console.log("videos: ", videos);
     
   }, [setVideos]); // [setVideos].
 
