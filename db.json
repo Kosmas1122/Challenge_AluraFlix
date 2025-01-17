@@ -39,6 +39,14 @@
       "imgURL": "https://img.youtube.com/vi/cLLKVd5CNLc&list=PLNKOkLkhi1Ke9j-o8dn6pdG38VPhAoJ1Y/hqdefault.jpg",
       "videoURL": "https://www.youtube.com/embed/cLLKVd5CNLc",
       "descripcion": "¿Cuáles son las diferencias entre una estructura de datos relacional (SQL) y una no relacional (NoSQL) y cuáles son las principales ventajas de cada una? Álvaro Camacho lo explica en este vídeo."
+    },
+    {
+      "id": "47255194-2512-4a7e-833c-02ba5bb58f74",
+      "titulo": "Prueba 2",
+      "categoria": "Innovación y Gestión",
+      "imgURL": "Modificado",
+      "videoURL": "Modificado",
+      "descripcion": "Modificado"
     }
   ]
 }
