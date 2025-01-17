@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Boton from "../Boton";
-import { useState } from "react";
+import { useContext } from "react";
+import { HomeContext } from "../../context/HomeContext";
 
 const FooterStyled = styled.footer`
   box-sizing: border-box;
@@ -10,8 +11,6 @@ const FooterStyled = styled.footer`
   align-items: center;
   justify-content: center;
   align-self: flex-end;
-  /* position: absolute;
-  bottom: 0px; */
   width: 100%;
   height: 125px;
   border: 1px solid #2271d1;
@@ -52,7 +51,7 @@ const BotonesStyled = styled.div`
 
 export default function Footer() {
 
-  const [botonSeleccionado, setBotonSeleccionado] = useState("home");
+  const {botonSeleccionado, setBotonSeleccionado} = useContext(HomeContext);
   
     function alternarSeleccion(boton) {
       setBotonSeleccionado(boton);

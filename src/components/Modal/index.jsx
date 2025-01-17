@@ -32,8 +32,7 @@ const ModalStyled = styled.form`
   top: 130px;
   left: 50%;
   transform: translateX(-50%);
-  height: 720px;
-  //padding: 0px 100px;
+  height: 760px;  //720
   border: 5px solid #6bd1ff;
   border-radius: 10px;
   background: #dcf3ff;
@@ -67,7 +66,7 @@ const ModalStyled = styled.form`
 `;
 
 export default function Modal() {
-  const { isModalOpen, closeModal, cardSelected, setCardSelected } = useContext(HomeContext);
+  const { isModalOpen, closeModal } = useContext(HomeContext);
   
   /* Sube la ventana al inicio: */
   {window.scrollTo({ top: 0, behavior: "smooth" });}
@@ -79,10 +78,7 @@ export default function Modal() {
       <Overlay />
       <ModalStyled>
         <Typography variant="h3" align="center" component="h1">Editar Card</Typography>
-        {/* <Formulario /> */}
-        {/* <HomeContext.Provider value={isModalOpen}><Formulario /></HomeContext.Provider> */}
-        <HomeContext.Provider value={{isModalOpen, cardSelected, setCardSelected}}><Formulario /></HomeContext.Provider>
-
+        <Formulario />
         <Button className="BtnCerrar" variant="contained" size="large" onClick={closeModal}>Cerrar</Button>
       </ModalStyled>
     </>

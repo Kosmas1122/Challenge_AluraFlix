@@ -25,28 +25,15 @@ const Div = styled.div`
 `;
 
 function Formulario() {
-  // Estados:
-  const [datos, setDatos] = useState({
-    id: uuidv4(),
-    titulo: "",
-    categoria: "",
-    imgURL: "",
-    videoURL: "",
-    descripcion: "",
-  });
-
-  const { cardSelected } = useContext(HomeContext);
-
-  // Estado para manejar errores en los campos del Formulario:
-  const [errores, setErrores] = useState({
-    titulo: false,
-    categoria: false,
-    imgURL: false,
-    videoURL: false,
-    descripcion: false,
-  });
+  
+  const { setVideos, datos, setDatos, errores, setErrores, cardSelected, isModalOpen, limpiarFormulario } = useContext(HomeContext);
 
   useEffect(() => {
+    limpiarFormulario();
+  }, [isModalOpen]);
+  
+  useEffect(() => {
+    
     if (cardSelected) {
       setDatos({
         id: cardSelected.id || uuidv4(),
@@ -59,12 +46,11 @@ function Formulario() {
     }
   }, [cardSelected]);
 
-  const isModalOpen = useContext(HomeContext);
+  
 
   // Se establece la tarea a realizar según el Formulario abierto:
   function tareaFormulario(e) {
     e.preventDefault();
-    console.log("isModalOpen: ", isModalOpen);
 
     // 1. Validar campos:
     if (!validarCampos()) {
@@ -74,11 +60,9 @@ function Formulario() {
 
     // 2. Realizar la acción correspondiente:
     if (isModalOpen) {
-      console.log("Editando video en Modal...");
-      console.log("Card seleccionada: ", cardSelected);
       actualizarVideo();
+
     } else {
-      console.log("Creando nuevo video...");
       nuevoVideo(e);
     }
   }
@@ -100,7 +84,9 @@ function Formulario() {
 
       if (conexion.ok) {
         alert("¡Video guardado exitosamente!");
+
         setDatos({
+          id: "",
           titulo: "",
           categoria: "",
           imgURL: "",
@@ -135,7 +121,14 @@ function Formulario() {
       });
 
       if (conexion.ok) {
+
+        const videoActualizado = await conexion.json();
+        setVideos((prevVideos) =>
+          prevVideos.map((video) => 
+          video.id === cardSelected.id ? videoActualizado : video));
+
         alert("¡Video actualizado exitosamente!");
+        
         setDatos({
           titulo: "",
           categoria: "",
@@ -151,6 +144,7 @@ function Formulario() {
           videoURL: false,
           descripcion: false,
         });
+
       } else {
         alert("Error al actualizar el video.");
       }
@@ -158,27 +152,6 @@ function Formulario() {
       console.error("Error en el PUT:", error);
     }
   }
-
-  // Función para limpiar Formulario:
-  const limpiarFormulario = () => {
-    setDatos({
-      id: uuidv4(),
-      titulo: "",
-      categoria: "",
-      imgURL: "",
-      videoURL: "",
-      descripcion: "",
-    });
-
-    setErrores({
-      titulo: false,
-      categoria: false,
-      imgURL: false,
-      videoURL: false,
-      descripcion: false,
-    });
-  };
-
 
 
   /* Maneja el valor del campo Select: */

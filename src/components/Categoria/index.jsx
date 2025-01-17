@@ -48,19 +48,18 @@ const CategoriaStyled = styled.div`
   }
 `;
 
-function Categoria(props) {
+
+export default function Categoria(props) {
   return (
     <CategoriaStyled fondo={props.fondo}>
       <h1> {props.nombre} </h1>
       <div className="cards">
-        {
-          props.videos.map((video) => (
-          <CardVideo key={video.id} id={video.id} fuente={video.videoURL} />
-          ))
-        }
+        {props.videos
+          .filter((video) => video.categoria === props.nombre)
+          .map((video) => (
+            <CardVideo key={video.id} id={video.id} fuente={video.videoURL} />
+          ))}
       </div>
     </CategoriaStyled>
   );
 }
-
-export default Categoria;

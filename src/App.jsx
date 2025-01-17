@@ -1,6 +1,5 @@
 import './App.css';
 
-
 // Enrutamiento:
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -13,20 +12,18 @@ import NuevoVideo from './pages/NuevoVideo';
 
 // Componentes:
 import Header from './components/Header';
-import GlobalStyles from './components/GlobalStyles';
 import Footer from './components/Footer';
 
 
 function App() {
   return (
     <Router>
-      {/* <GlobalStyles /> */}
-      <Header />
+      <HomeProvider><Header/></HomeProvider>
       <Routes>
         <Route path="/" element={<HomeProvider> <Home /> </HomeProvider>} />
-        <Route path="/NuevoVideo" element={<NuevoVideo />} />
+        <Route path="/NuevoVideo" element={<HomeProvider><NuevoVideo /></HomeProvider>} />
       </Routes>
-      <Footer />
+      <HomeProvider><Footer /></HomeProvider>
     </Router>
   );
 }

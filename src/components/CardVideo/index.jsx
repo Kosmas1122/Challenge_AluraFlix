@@ -42,8 +42,6 @@ const BotonesCardStyled = styled.div`
   gap: 70px;
 
   button {
-    /* height: 30px;
-    width: 40px; */
     background: none;
     border: none;
   }
