@@ -21,7 +21,6 @@ const HeaderStyled = styled.header`
     justify-content: space-between;
     width: 100%;
     height: 125px;
-
     border: 1px solid #2271d1;
     background: #262626;
     background-blend-mode: normal;

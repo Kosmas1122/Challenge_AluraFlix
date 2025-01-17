@@ -48,23 +48,6 @@ const CategoriaStyled = styled.div`
   }
 `;
 
-/* function Categoria(props) {
-  return (
-    <CategoriaStyled fondo={props.fondo}>
-      <h1> {props.nombre} </h1>
-      <div className="cards">
-        {
-          props.videos.map((video) => (
-          <CardVideo key={video.id} id={video.id} fuente={video.videoURL} />
-          ))
-        }
-      </div>
-    </CategoriaStyled>
-  );
-}
-
-export default Categoria; */
-
 
 export default function Categoria(props) {
   return (
@@ -80,8 +63,3 @@ export default function Categoria(props) {
     </CategoriaStyled>
   );
 }
-
-
-/* function filtrarLista(lista, categoriaBuscada) {
-  return lista.filter((elemento) => elemento.categoria === categoriaBuscada);
-} */

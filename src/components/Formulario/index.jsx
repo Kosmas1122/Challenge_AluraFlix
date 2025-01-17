@@ -63,7 +63,6 @@ function Formulario() {
       actualizarVideo();
 
     } else {
-      console.log("Creando nuevo video...");
       nuevoVideo(e);
     }
   }
