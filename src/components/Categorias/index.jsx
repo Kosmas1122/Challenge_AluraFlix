@@ -15,20 +15,6 @@ function filtrarLista(lista, categoriaBuscada) {
 }
 
 
-/* // Se hace una petición o requisición de tipo GET:
-async function listarVideos() {
-  try {
-    const conexion = await fetch("http://localhost:3001/videos");
-    const conexionJSON = await conexion.json();
-
-    return conexionJSON;
-  }
-  catch (error) {
-    console.error("Error al obtener los videos: ", error);
-  }
-} */
-
-
 function Categorias() {
   
   const { videos, setVideos } = useContext(HomeContext);
@@ -37,11 +23,7 @@ function Categorias() {
   const [videosFrontend, setVideosFrontend] = useState([]);
   const [videosBackend, setVideosBackend] = useState([]);
   const [videosInnGest, setVideosInnGest] = useState([]);
-  const [forceUpdate, setForceUpdate] = useState(false);
 
-  /* function toggleForceUpdate() {
-    setForceUpdate((forceUpdate) => !forceUpdate); // Cambia el estado booleano.
-  } */
 
   // Efecto para cargar la lista completa de videos desde json-server
   useEffect(() => {
@@ -64,27 +46,14 @@ function Categorias() {
     setVideosFrontend(filtrarLista(videos, "Frontend"));
     setVideosBackend(filtrarLista(videos, "Backend"));
     setVideosInnGest(filtrarLista(videos, "Innovación y Gestión"));
-    setForceUpdate((forceUpdate) => !forceUpdate);
-    console.log("Estado forceUpdate: ", forceUpdate);
-
   }, [videos]);  // [videos]     // Este efecto se ejecutará cada vez que cambie `videos`
 
-  /* // Lee la lista de videos desde json-server:
-  useEffect(() => {
-    listarVideos()
-      .then((data) => {
-        setVideos(data);
-      })
-      .catch((error) => {
-        console.error("Error al listar los videos:", error);
-      });
-  }, []); */
 
   return (
     <CategoriasStyled>
-      <Categoria nombre="frontend" fondo="#6bd1ff" videos={videosFrontend} reRender={forceUpdate} />
-      <Categoria nombre="backend" fondo="#00c86f" videos={videosBackend} reRender={forceUpdate} />
-      <Categoria nombre="innovación y gestión" fondo="#ffba05" videos={videosInnGest} reRender={forceUpdate} />
+      <Categoria nombre="frontend" fondo="#6bd1ff" videos={videosFrontend} />
+      <Categoria nombre="backend" fondo="#00c86f" videos={videosBackend} />
+      <Categoria nombre="innovación y gestión" fondo="#ffba05" videos={videosInnGest} />
     </CategoriasStyled>
   );
 }

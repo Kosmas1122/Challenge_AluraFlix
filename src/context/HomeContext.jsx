@@ -1,11 +1,6 @@
 import { createContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-// Función para filtrar lista de videos:
-function filtrarLista(lista, categoriaBuscada) {
-  return lista.filter((elemento) => elemento.categoria === categoriaBuscada);
-}
-
 
 // Crea el contexto:
 export const HomeContext = createContext(false);
@@ -34,16 +29,9 @@ export const HomeProvider = ({ children }) => {
     descripcion: false,
   }); // Estado para manejar errores en los campos del Formulario.
 
-  //let videosFrontend = []; // Guarda la lista categoría Frontend.
-  //let videosBackend = []; // Guarda la lista categoría Backend.
-  //let videosInnGest = []; // Guarda la lista categoría Innovación y Gestión.
 
   // Funciones:
   // -----------------------------------------------------------
-  //videosFrontend = filtrarLista(videos, "Frontend");
-  //videosBackend = filtrarLista(videos, "Backend");
-  //videosInnGest = filtrarLista(videos, "Innovación y Gestión");
-
   const openModal = (id) => {
     setIsModalOpen(true);
     setCardSelected(videos.find((video) => video.id === id));
@@ -85,14 +73,6 @@ export const HomeProvider = ({ children }) => {
         // Si la eliminación es exitosa, elimina el elemento:
         setVideos((videos) => videos.filter((video) => video.id !== id));
         console.log(`Video con ID ${id} eliminado exitosamente.`);
-
-
-
-        /* const video = document.getElementById(id);
-        if (video) {
-          video.remove();
-          console.log(`Video con ID ${id} eliminado exitosamente.`);
-        } */
       } else {
         console.error("Error al eliminar el video:", conexion.status);
       }
